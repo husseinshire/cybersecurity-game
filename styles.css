@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e2dce8, #c3cfe4); /* Vibrant gradient */
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(19, 1, 1, 0.7); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #00ff00; /* Green for a techy feel */
+}
+
+button {
+    background-color: #00ff00;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #00cc00;
+    transform: scale(1.05);
+}
+
+#question-container {
+    margin: 20px 0;
+}
+
+.answer-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.answer-btn:hover {
+    background-color: #555;
+}
+
+#progress-bar {
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#progress {
+    height: 10px;
+    background-color: #00ff00;
+    width: 0;
+    border-radius: 5px;
+}
+
+#timer {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+@keyframes correctAnswer {
+    0% { background-color: #00ff00; }
+    100% { background-color: #444; }
+}
+
+@keyframes incorrectAnswer {
+    0% { background-color: #ff0000; }
+    100% { background-color: #444; }
+}
+
+.correct {
+    animation: correctAnswer 0.5s;
+}
+
+.incorrect {
+    animation: incorrectAnswer 0.5s;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+
+    #hint-btn {
+    background-color: #ffcc00; /* Yellow for the hint button */
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#hint-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+#hint {
+    margin: 10px 0;
+    font-style: italic;
+    color: #ffcc00; /* Yellow for hint text */
+
+}

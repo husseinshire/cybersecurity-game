@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Cybersecurity Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Over!</h1>
+        <p>Your score: <span id="score"></span></p>
+        <input type="text" id="nickname" placeholder="Enter your nickname (optional)">
+        <button onclick="saveScore()">Save Score</button>
+        <div id="leaderboard">
+            <h2>Leaderboard</h2>
+        </div>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+
+    <script>
+        const score = localStorage.getItem("score");
+        document.getElementById("score").innerText = score;
+
+        function saveScore() {
+            const nickname = document.getElementById("nickname").value || "Anonymous";
+            const scoreData = { nickname, score };
+            const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+            leaderboard.push(scoreData);
+            localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+            displayLeaderboard();
+        }
+
+        function displayLeaderboard() {
+            const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+            leaderboard.sort((a, b) => b.score - a.score); // Sort by score (descending)
+            const leaderboardHTML = leaderboard.map((entry, index) => `
+                <p>${index + 1}. ${entry.nickname}: ${entry.score}</p>
+            `).join("");
+            document.getElementById("leaderboard").innerHTML = leaderboardHTML;
+        }
+
+        function playAgain() {
+            window.location.href = "index.html"; // Redirect to homepage
+        }
+
+        // Display leaderboard when the page loads
+        displayLeaderboard();
+    </script>
+</body>
+</html>
